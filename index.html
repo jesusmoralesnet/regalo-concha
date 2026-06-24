@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Una pequeña sorpresa</title>
+<style>
+body{margin:0;font-family:Segoe UI,sans-serif;background:linear-gradient(135deg,#1e293b,#334155);color:#fff;display:flex;justify-content:center;align-items:center;min-height:100vh;padding:20px}
+.card{max-width:850px;width:100%;background:rgba(255,255,255,.08);padding:35px;border-radius:24px;text-align:center}
+button{background:#ec4899;color:#fff;border:none;padding:14px 22px;border-radius:12px;font-size:16px;cursor:pointer;margin:8px;min-width:220px}
+input{width:85%;max-width:500px;padding:14px;border:none;border-radius:10px}
+.ticket{background:#fff;color:#222;border-radius:20px;padding:25px;text-align:left;max-width:650px;margin:auto}
+.label{font-size:12px;color:#777;letter-spacing:2px;margin-top:14px}.value{font-size:22px;font-weight:bold}
+#typed{font-size:48px;font-weight:bold;color:#ec4899}
+</style></head><body><div class="card"><div id="app"></div></div>
+<script>
+const d={};
+const app=document.getElementById('app');
+function intro(){app.innerHTML=`<h1>🎁 Tengo que confesarte algo...</h1><p>Un regalo material siempre está bien.</p><p>Y sorprendernos cada vez es más complicado porque lo compartimos prácticamente todo.</p><p>Pero creo que lo que más valoramos son los momentos que vivimos juntos y los recuerdos que construimos.</p><p>Y como de eso nunca tenemos suficiente...</p><h2>❤️ He preparado una pequeña sorpresa ❤️</h2><p><b>Tú eliges el plan.</b><br><b>Yo me encargo del resto.</b></p><button onclick="p1()">✨ Comenzar la aventura</button>`;}
+function p1(){app.innerHTML=`<h1>1/3 🚗 ¿Cómo te gustaría escaparte un fin de semana?</h1><button onclick="d.t='🚗 Coche';p2()">🚗 Coche</button><br><button onclick="d.t='🚄 Tren';p2()">🚄 Tren</button><br><button onclick="d.t='✈️ Avión';p2()">✈️ Avión</button>`;}
+function p2(){app.innerHTML=`<h1>2/3 📅 ¿Cuándo te apetecería más una escapada?</h1><button onclick="d.f='Agosto';p3()">Agosto</button><br><button onclick="d.f='Octubre';p3()">Octubre</button>`;}
+function p3(){app.innerHTML=`<h1>3/3 ❤️ ¿Qué plan te apetece más?</h1><button onclick="d.p='🍷 Gastronomía';reto()">🍷 Gastronomía</button><br><button onclick="d.p='🏛️ Cultura';reto()">🏛️ Cultura</button><br><button onclick="d.p='💆 Relax';reto()">💆 Relax</button><br><button onclick="d.p='❤️ Romanticismo';reto()">❤️ Romanticismo</button>`;}
+function reto(){app.innerHTML=`<h1>😏 Pero no te lo iba a poner tan fácil...</h1><p>Para que podamos irnos juntos tendrás que superar una pequeña prueba.</p><button onclick="q1()">🎯 Acepto el reto</button>`;}
+function q1(){app.innerHTML=`<h1>📸 Pregunta 1 de 3</h1><p>¿Dónde nos hicimos nuestra primera foto juntos?</p><input id='a1'><br><br><button onclick="q2()">Siguiente</button>`;}
+function q2(){app.innerHTML=`<h1>🌍 Pregunta 2 de 3</h1><p>Si mañana nos perdiéramos juntos 24 horas sin móvil, ¿qué sería lo primero que querrías hacer?</p><input id='a2'><br><br><button onclick="q3()">Siguiente</button>`;}
+function q3(){app.innerHTML=`<h1>❤️ Pregunta 3 de 3</h1><p>¿Qué es imprescindible para que una escapada contigo sea perfecta?</p><input><br><br><button onclick="loading()">Ver resultado</button>`;}
+function loading(){app.innerHTML='<h1>⏳ Corrigiendo respuestas...</h1><p>✓ Analizando recuerdos</p><p>✓ Verificando compatibilidad</p><p>✓ Calculando nivel de complicidad</p>';setTimeout(resultado,2500);}function resultado(){app.innerHTML=`<h1>🎯 Resultado del reto</h1><h2>Has acertado el 78% de las preguntas</h2><p>😌 Suficiente para desbloquear tu regalo.</p><p>La organización considera que eres una candidata perfectamente válida para esta aventura.</p><button onclick="finale()">🎁 Descubrir mi regalo</button>`;}
+function finale(){app.innerHTML=`<h1>🎉 ¡Sorpresa!</h1><div class='ticket'><div class='label'>PASAJERA</div><div class='value'>CONCHA C. ❤️</div><div class='label'>TRANSPORTE</div><div class='value'>${d.t}</div><div class='label'>FECHA</div><div class='value'>${d.f}</div><div class='label'>PLAN</div><div class='value'>${d.p}</div><div class='label'>DESTINO</div><div class='value'>Roma ❤️</div></div><h2>🧳 Ve preparando las maletas...</h2><p>Porque dentro de muy poco...</p><div id='typed'></div><p>Solo disfrutarlo conmigo. ❤️</p>`;let i=0;let t=setInterval(()=>{const destino='Roma ❤️';document.getElementById('typed').innerHTML+=destino.charAt(i);i++;if(i>=destino.length)clearInterval(t);},120);}
+intro();
+</script></body></html>
